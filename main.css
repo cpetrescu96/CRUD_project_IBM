@@ -1,0 +1,44 @@
+h4{
+    font-size: 1.7rem;
+    font-weight: 700;  
+    display:inline-block;
+}
+
+.spacing{
+    margin:30px 20px;
+}
+
+.buttons{
+    color:white;
+    float: right;
+    margin-left: 1rem;
+    display:inline-block;
+    margin-top: 0.5rem;
+}
+
+.edit{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    width: 51.4px;
+}
+
+.phrase{
+    margin:auto;
+    text-align: center;
+}
+
+.catch::after{
+    clear:both;
+}
+
+#add{
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+@media only screen and (max-width: 992px) {
+    .col-md-4 {
+        flex: 0 0 100%;
+    max-width: 100%;
+    }
+  }
