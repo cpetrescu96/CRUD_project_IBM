@@ -14,108 +14,15 @@
 </head>
 
 <body>
-
+    <!-- Container with all the update modals required for the editting process of an user -->
     <div class="updateModals"></div>
 
-    <!-- Add Modal form -->
-    <div class="modal fade" id="addUser" tabindex="0" role="dialog" aria-labelledby="addUserTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Add a new user</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-8">
-    
-                                <h4 class="page-header">Preview Detailes</h4>
-                                <form role="form">
-                                    <div class="form-group float-label-control">
-                                        <label for="">Company</label>
-                                        <input type="email" class="form-control" placeholder="What's your company name?">
-                                    </div>
-                                    <div class="form-group float-label-control">
-                                        <label for="">Email</label>
-                                        <input type="email" class="form-control" aria-describedby="emailHelp"
-                                            placeholder="What's your email address?">
-                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with
-                                            anyone else.</small>
-                                    </div>
-                                    <div class="form-group float-label-control">
-                                        <label for="">Phone</label>
-                                        <textarea class="form-control" placeholder="What's your telephone number?"
-                                            rows="1"></textarea>
-                                    </div>
-                                    <div class="form-group float-label-control">
-                                        <label for="">Website</label>
-                                        <textarea class="form-control" placeholder="example@mywebsite.com"
-                                            rows="1"></textarea>
-                                    </div>
-                                </form>
-    
-                                <h4 class="page-header">Adress</h4>
-                                <form role="form">
-                                    <div class="form-group float-label-control label-bottom">
-                                        <label for="">Street</label>
-                                        <input type="email" class="form-control" placeholder="Street">
-                                    </div>
-                                    <div class="form-group float-label-control label-bottom">
-                                        <label for="">Suite</label>
-                                        <input type="email" class="form-control" placeholder="Suite">
-                                    </div>
-                                    <div class="form-group float-label-control label-bottom">
-                                        <label for="">City</label>
-                                        <input type="email" class="form-control" placeholder="City">
-                                    </div>
-                                    <div class="form-group float-label-control label-bottom">
-                                        <label for="">Zipcode</label>
-                                        <input type="email" class="form-control" placeholder="Zipcode">
-                                    </div>
-                                    <div class="form-group float-label-control label-bottom">
-                                        <label for="">Geo</label>
-                                        <input type="email" class="form-control" placeholder="Latitude">
-                                        <input type="email" class="form-control" placeholder="Longitude">
-                                    </div>
-    
-                                </form>
-    
-    
-                                <h4 class="page-header">Company Details</h4>
-                                <form role="form">
-                                    <div class="form-group float-label-control label-bottom">
-                                        <label for="">Catch Prase</label>
-                                        <input type="email" class="form-control" placeholder="Catch Prase">
-                                    </div>
-                                    <div class="form-group float-label-control label-bottom">
-                                        <label for="">Aria of interest</label>
-                                        <input type="email" class="form-control" placeholder="Aria of interest">
-                                    </div>
-    
-                            </div>
-                            <div class="col-sm-4">
-    
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    <div class="addModal"></div>
         
-
     <!-- Button for adding new users -->
     <button type="button" id="add" class="btn btn-primary buttons " data-toggle="modal"
-        data-target="#addUser">+</button>
+        data-target="#addUser"><p style="">+</p></button>
     <!-- ^^^^^^^^^ -->
-
-    
 
     <!-- Container to be populated with user cards -->
     <div class="container" id="Users"></div>
