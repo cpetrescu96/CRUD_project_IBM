@@ -1,3 +1,7 @@
+body{
+    min-width: 300px;
+}
+
 h4{
     font-size: 1.7rem;
     font-weight: 700;  
@@ -31,9 +35,19 @@ h4{
     clear:both;
 }
 
+.butonAdd{
+    margin: 15px 0;
+}
+
 #add{
-    font-size: 25px;
-    font-weight: bolder;
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    left:42%;
+}
+
+#Users{
+    padding-top:52px;
 }
 
 @media only screen and (max-width: 992px) {

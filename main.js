@@ -263,6 +263,8 @@ $(document).ready(function () {
                                     <div class="form-group float-label-control">
                                         <label for="">Name</label>
                                         <input type="text" class="form-control" id="name${i}" value="${user.name}">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a name!</div>
                                     </div>
     
                                     <h4 class="page-header">Preview Detailes</h4>
@@ -270,14 +272,26 @@ $(document).ready(function () {
                                         <label for="">Email</label>
                                         <input type="email" class="form-control" aria-describedby="emailHelp" id="email${i}" value="${user.email}">
                                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a valid email address!</div>
                                     </div>
                                     <div class="form-group float-label-control">
                                         <label for="">Phone</label>
                                         <input type="tel" class="form-control" id="phone${i}" value="${user.phone}">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a valid phone number!</div>
                                     </div>
                                     <div class="form-group float-label-control">
                                         <label for="">Website</label>
                                         <input type="url" class="form-control" id="website${i}" value="${user.website}">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a valid website!</div>
+                                    </div>
+                                    <div class="form-group float-label-control">
+                                        <label for="">Username</label>
+                                        <input type="text" class="form-control" value="${user.username}" id="username${i}" required>
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a username!</div>
                                     </div>
                                     
                                     <h4 class="page-header">Adress</h4>
@@ -285,23 +299,41 @@ $(document).ready(function () {
                                     <div class="form-group float-label-control label-bottom">
                                         <label for="">Street</label>
                                         <input type="text" class="form-control" id="street${i}" value="${user.address.street}">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a street name!</div>
                                     </div>
                                     <div class="form-group float-label-control label-bottom">
                                         <label for="">Suite</label>
                                         <input type="text" class="form-control" id="suite${i}" value="${user.address.suite}">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a suite name!</div>
                                     </div>
                                     <div class="form-group float-label-control label-bottom">
                                         <label for="">City</label>
                                         <input type="text" class="form-control" id="city${i}" value="${user.address.city}">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a valid city name!</div>
                                     </div>
                                     <div class="form-group float-label-control label-bottom">
                                         <label for="">Zipcode</label>
                                         <input type="text" class="form-control" id="zipcode${i}" value="${user.address.zipcode}">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a valid zipcode number!</div>
                                     </div>
                                     <div class="form-group float-label-control label-bottom">
                                         <label for="">Geo</label>
-                                        <input type="number" class="form-control" id="lat${i}" value="${parseFloat(user.address.geo.lat)}">
-                                        <input type="number" class="form-control" id="lng${i}" value="${parseFloat(user.address.geo.lng)}">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <input type="number" class="form-control" id="lat${i}" value="${parseFloat(user.address.geo.lat)}">
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">Please provide a valid latitude coordinate!</div>
+                                            </div>
+                                            <div>
+                                                <input type="number" class="form-control" id="lng${i}" value="${parseFloat(user.address.geo.lng)}">
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">Please provide a valid longitude coordinate!</div>
+                                            </div>
+                                        </div>
                                     </div>
                                     
                                     <h4 class="page-header">Company Details</h4>
@@ -309,15 +341,21 @@ $(document).ready(function () {
                                     <div class="form-group float-label-control">
                                         <label for="">Company</label>
                                         <input type="text" class="form-control" id="company_name${i}" value="${user.company.name}">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a company name!</div>
                                     </div>
                                     
                                     <div class="form-group float-label-control label-bottom">
                                         <label for="">Catch Prase</label>
                                         <input type="text" class="form-control" id="catch_phrase${i}" value="${user.company.catchPhrase}">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a company catch phrase!</div>
                                     </div>
                                     <div class="form-group float-label-control label-bottom">
                                         <label for="">Aria of interest</label>
                                         <input type="text" class="form-control" id="aria_of_interest${i}" value="${user.company.bs}">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide the aria of interest from your company!</div>
                                     </div>
                                 </form>
     
@@ -359,68 +397,99 @@ $(document).ready(function () {
                                         <div class="form-group float-label-control">
                                             <label for="">Name</label>
                                             <input type="text" class="form-control" placeholder="What's your name?" id="name" required>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please provide a name!</div>
                                         </div>
                                         <div class="form-group float-label-control">
                                             <label for="">Email</label>
                                             <input type="email" class="form-control" placeholder="What's your email address?" id="email" required>
-                                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with
-                                                anyone else.</small>
+                                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please provide a valid email address!</div>
                                         </div>
                                         <div class="form-group float-label-control">
                                             <label for="">Phone</label>
                                             <input type="tel" class="form-control" placeholder="What's your telephone number?" id="phone" required>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please provide a valid phone number!</div>
                                         </div>
                                         <div class="form-group float-label-control">
                                             <label for="">Website</label>
-                                            <input type="url" class="form-control" placeholder="example@mywebsite.com" id="website" required>
+                                            <input type="url" class="form-control" placeholder="http://www.mywebsite.com" id="website" required>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please provide a valid URL for your website!</div>
                                         </div>
                                         <div class="form-group float-label-control">
                                             <label for="">Username</label>
                                             <input type="text" class="form-control" placeholder="What's your username?" id="username" required>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please provide a username!</div>
                                         </div>
 
                                         <h4 class="page-header">Adress</h4>
 
                                         <div class="form-group float-label-control label-bottom">
                                             <label for="">Street</label>
-                                            <input type="email" class="form-control" placeholder="Street" id="street" required>
+                                            <input type="text" class="form-control" placeholder="Street" id="street" required>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please provide a street name!</div>
                                         </div>
                                         <div class="form-group float-label-control label-bottom">
                                             <label for="">Suite</label>
-                                            <input type="email" class="form-control" placeholder="Suite" id="suite" required>
+                                            <input type="text" class="form-control" placeholder="Suite" id="suite" required>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please provide a suite name!</div>
                                         </div>
                                         <div class="form-group float-label-control label-bottom">
                                             <label for="">City</label>
-                                            <input type="email" class="form-control" placeholder="City" id="city" required>
+                                            <input type="text" class="form-control" placeholder="City" id="city" required>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please provide a city name!</div>
                                         </div>
                                         <div class="form-group float-label-control label-bottom">
-                                            <label for="">Zipcode</label>
-                                            <input type="email" class="form-control" placeholder="Zipcode" id="zipcode" required>
-                                        </div>
-                                        <div class="form-group float-label-control label-bottom">
-                                            <label for="">Geo</label>
-                                            <div class="d-flex justify-content-between">
-                                                <input type="email" class="form-control" placeholder="Latitude" id="lat" required>
-                                                <input type="email" class="form-control" placeholder="Longitude" id="lng" required>
+                                        <label for="">Zipcode</label>
+                                        <input type="text" class="form-control" id="zipcode" placeholder="Zipcode">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a valid zipcode number!</div>
+                                    </div>
+                                    <div class="form-group float-label-control label-bottom">
+                                        <label for="">Geo</label>
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <input type="number" class="form-control" id="lat" placeholder="Latitude">
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">Please provide a valid latitude coordinate!</div>
+                                            </div>
+                                            <div>
+                                                <input type="number" class="form-control" id="lng" placeholder="Longitude">
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">Please provide a valid longitude coordinate!</div>
                                             </div>
                                         </div>
-        
-                                        <h4 class="page-header">Company Details</h4>
-
-                                        <div class="form-group float-label-control">
+                                    </div>
+                                    
+                                    <h4 class="page-header">Company Details</h4>
+                                    
+                                    <div class="form-group float-label-control">
                                         <label for="">Company</label>
-                                        <input type="text" class="form-control" placeholder="What's your company name?" id="company_name" required>
-                                        </div>
-                                        <div class="form-group float-label-control label-bottom">
+                                        <input type="text" class="form-control" id="company_name" placeholder="What is your company name?">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a company name!</div>
+                                    </div>
+                                    
+                                    <div class="form-group float-label-control label-bottom">
                                         <label for="">Catch Prase</label>
-                                        <input type="email" class="form-control" placeholder="Catch Prase" id="catch_phrase" required>
-                                        </div>
-                                        <div class="form-group float-label-control label-bottom">
+                                        <input type="text" class="form-control" id="catch_phrase" placeholder="What is your company's catch phrase?">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide a company catch phrase!</div>
+                                    </div>
+                                    <div class="form-group float-label-control label-bottom">
                                         <label for="">Aria of interest</label>
-                                        <input type="email" class="form-control" placeholder="Aria of interest" id="aria_of_interest" required>
-                                        </div>
-                                        
-                                    </form>
+                                        <input type="text" class="form-control" id="aria_of_interest" placeholder="What is your company's aria of interest?">
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Please provide the aria of interest from your company!</div>
+                                    </div>
+                                </form>
                                 </div>
                                 <div class="col-sm-1"></div>
                             </div>
@@ -538,10 +607,8 @@ $(document).ready(function () {
         /* 
         */
         
-        $(`#editUserData${i}`).click(function(event){
-            let targetedElement = event.currentTarget;
-            if (targetedElement.closest(`div[data-userToBeDeletedOrEdited='${i}']`)){
-                
+        $(`#editUserData${i}`).click(function(){
+	
             let _name = $(`#name${i}`).val();
             let _username = $(`#username${i}`).val();
             let _email = $(`#email${i}`).val();
@@ -555,40 +622,44 @@ $(document).ready(function () {
             let _website = $(`#website${i}`).val();
             let _companyName = $(`#company_name${i}`).val();
             let _catchPhrase = $(`#catch_phrase${i}`).val();
-            let _bs = $(`#aria_of_interest${i}`).val();
+            let _bs = $(`#aria_of_interest${i}`).val();  
             
-            users[i] = {
-                id : i+1,
-                name : _name,
-                username : _username,
-                email : _email,
-                address : {
-                    street : _street,
-                    suite : _suite,
-                    city : _city,
-                    zipcode : _zipcode,
-                    geo : {
-                        lat : _lat,
-                        lng : _lng
-                    }
-                },
-                phone : _phone,
-                website : _website,
-                company : {
-                    name : _companyName,
-                    catchPhrase : _catchPhrase,
-                    bs : _bs
-                }
-            };
+            if( _name && _username && _email && _street && _suite && _city && _zipcode && _lat && _lng && _phone && _website && _companyName && _catchPhrase && _bs ){
 
-            //debugger
-            loadEditModals(containerUpdateModals);
-            loadUsers(containerUsers);
-            initInteractions();
-            
-            $(`#editUser${i}`).modal('hide');    
+                users[i] = {
+                    id : i+1,
+                    name : _name,
+                    username : _username,
+                    email : _email,
+                    address : {
+                        street : _street,
+                        suite : _suite,
+                        city : _city,
+                        zipcode : _zipcode,
+                        geo : {
+                            lat : _lat,
+                            lng : _lng
+                        }
+                    },
+                    phone : _phone,
+                    website : _website,
+                    company : {
+                        name : _companyName,
+                        catchPhrase : _catchPhrase,
+                        bs : _bs
+                    }
+                };
+                            
+                loadUsers(containerUsers);
+                users.filter( (user, i, users) => { 
+                    addClickEventToDeleteButtons(user, i, users); 
+                    addClickEventToSaveButtons(user, i, users);
+                });
+                
+                $(`#editUser${i}`).modal('hide');
+            }    
         }
-        });
+        );
     }
 
 
@@ -609,6 +680,8 @@ $(document).ready(function () {
             let _companyName = $(`#company_name`).val();
             let _catchPhrase = $(`#catch_phrase`).val();
             let _bs = $(`#aria_of_interest`).val();
+
+            if( _name && _username && _email && _street && _suite && _city && _zipcode && _lat && _lng && _phone && _website && _companyName && _catchPhrase && _bs ){
             
             let newUser = {
                 id : usersCounter+1,
@@ -647,15 +720,11 @@ $(document).ready(function () {
             usersCounter++;
             
             $('#addUser').modal('hide');
-            
+        }
             
         });
     }
-    
-    // fires after the add modal dissapeares
-    $('#addUser').on('hidden.bs.modal', function () {
-        //initInteractions();
-      })
+
 
     function initInteractions(){
         /* -function for intiation of the procedures */
