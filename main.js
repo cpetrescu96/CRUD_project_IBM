@@ -234,15 +234,16 @@ let users = [{
 
 $(document).ready(function () {
 
-    $(document).on("click",initInteractions);
+    //$(document).on("click",initInteractions);
 
     let containerUsers = $("#Users");
     let containerUpdateModals = $(`.updateModals`);
     let containerAddModal = $('.addModal');
-
-    let html = ``;
-
+    let usersCounter = users.length;
+    
     function loadEditModals(containerUpdateModals){
+        let html = ``;
+        
         users.forEach(function (user, i) {
             html += `<!-- Edit Modal form -->
             <div class="modal fade" id="editUser${i}" tabindex="-1" role="dialog" aria-labelledby="editUser${i}Title" aria-hidden="true">
@@ -256,94 +257,89 @@ $(document).ready(function () {
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                                <div class="col-sm-8">
+                                <div class="col-sm-11">
 
+                                <form role="form">
                                     <div class="form-group float-label-control">
                                         <label for="">Name</label>
-                                        <input type="text" class="form-control" value="${user.name}">
+                                        <input type="text" class="form-control" id="name${i}" value="${user.name}">
                                     </div>
     
                                     <h4 class="page-header">Preview Detailes</h4>
-                                    <form role="form">
-                                        <div class="form-group float-label-control">
-                                            <label for="">Company</label>
-                                            <input type="text" class="form-control" value="${user.company.name}">
-                                        </div>
-                                        <div class="form-group float-label-control">
-                                            <label for="">Email</label>
-                                            <input type="email" class="form-control" aria-describedby="emailHelp"
-                                            value="${user.email}">
-                                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with
-                                                anyone else.</small>
-                                        </div>
-                                        <div class="form-group float-label-control">
-                                            <label for="">Phone</label>
-                                            <input type="tel" class="form-control" value="${user.phone}">
-                                        </div>
-                                        <div class="form-group float-label-control">
-                                            <label for="">Website</label>
-                                            <input type="url" class="form-control" value="${user.website}">
-                                        </div>
-                                    </form>
-    
+                                    <div class="form-group float-label-control">
+                                        <label for="">Email</label>
+                                        <input type="email" class="form-control" aria-describedby="emailHelp" id="email${i}" value="${user.email}">
+                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    </div>
+                                    <div class="form-group float-label-control">
+                                        <label for="">Phone</label>
+                                        <input type="tel" class="form-control" id="phone${i}" value="${user.phone}">
+                                    </div>
+                                    <div class="form-group float-label-control">
+                                        <label for="">Website</label>
+                                        <input type="url" class="form-control" id="website${i}" value="${user.website}">
+                                    </div>
+                                    
                                     <h4 class="page-header">Adress</h4>
-                                    <form role="form">
-                                        <div class="form-group float-label-control label-bottom">
-                                            <label for="">Street</label>
-                                            <input type="text" class="form-control" value="${user.address.street}">
-                                        </div>
-                                        <div class="form-group float-label-control label-bottom">
-                                            <label for="">Suite</label>
-                                            <input type="text" class="form-control" value="${user.address.suite}">
-                                        </div>
-                                        <div class="form-group float-label-control label-bottom">
-                                            <label for="">City</label>
-                                            <input type="text" class="form-control" value="${user.address.city}">
-                                        </div>
-                                        <div class="form-group float-label-control label-bottom">
-                                            <label for="">Zipcode</label>
-                                            <input type="text" class="form-control" value="${user.address.zipcode}">
-                                        </div>
-                                        <div class="form-group float-label-control label-bottom">
-                                            <label for="">Geo</label>
-                                            <input type="number" class="form-control" value="${parseFloat(user.address.geo.lat)}">
-                                            <input type="number" class="form-control" value="${parseFloat(user.address.geo.lng)}">
-                                        </div>
-    
-                                    </form>
-    
-    
+                                    
+                                    <div class="form-group float-label-control label-bottom">
+                                        <label for="">Street</label>
+                                        <input type="text" class="form-control" id="street${i}" value="${user.address.street}">
+                                    </div>
+                                    <div class="form-group float-label-control label-bottom">
+                                        <label for="">Suite</label>
+                                        <input type="text" class="form-control" id="suite${i}" value="${user.address.suite}">
+                                    </div>
+                                    <div class="form-group float-label-control label-bottom">
+                                        <label for="">City</label>
+                                        <input type="text" class="form-control" id="city${i}" value="${user.address.city}">
+                                    </div>
+                                    <div class="form-group float-label-control label-bottom">
+                                        <label for="">Zipcode</label>
+                                        <input type="text" class="form-control" id="zipcode${i}" value="${user.address.zipcode}">
+                                    </div>
+                                    <div class="form-group float-label-control label-bottom">
+                                        <label for="">Geo</label>
+                                        <input type="number" class="form-control" id="lat${i}" value="${parseFloat(user.address.geo.lat)}">
+                                        <input type="number" class="form-control" id="lng${i}" value="${parseFloat(user.address.geo.lng)}">
+                                    </div>
+                                    
                                     <h4 class="page-header">Company Details</h4>
-                                    <form role="form">
-                                        <div class="form-group float-label-control label-bottom">
-                                            <label for="">Catch Prase</label>
-                                            <input type="text" class="form-control" value="${user.company.catchPhrase}">
-                                        </div>
-                                        <div class="form-group float-label-control label-bottom">
-                                            <label for="">Aria of interest</label>
-                                            <input type="text" class="form-control" value="${user.company.bs}">
-                                        </div>
+                                    
+                                    <div class="form-group float-label-control">
+                                        <label for="">Company</label>
+                                        <input type="text" class="form-control" id="company_name${i}" value="${user.company.name}">
+                                    </div>
+                                    
+                                    <div class="form-group float-label-control label-bottom">
+                                        <label for="">Catch Prase</label>
+                                        <input type="text" class="form-control" id="catch_phrase${i}" value="${user.company.catchPhrase}">
+                                    </div>
+                                    <div class="form-group float-label-control label-bottom">
+                                        <label for="">Aria of interest</label>
+                                        <input type="text" class="form-control" id="aria_of_interest${i}" value="${user.company.bs}">
+                                    </div>
+                                </form>
     
                                 </div>
-                                <div class="col-sm-4">
-    
-                                </div>
+                                <div class="col-sm-1"></div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="editUser${i}">Save Changes</button>
+                            <button type="button" class="btn btn-primary" id="editUserData${i}">Save Changes</button>
                         </div>
                     </div>
                 </div>
             </div>`;
 
-            containerUpdateModals.html(html);
-
+            
         });
+        containerUpdateModals.html(html);
     }
 
     function loadAddModal(containerAddModal){
+        let html ="";
         html += `<!-- Add Modal form -->
         <div class="modal fade" id="addUser" tabindex="0" role="dialog" aria-labelledby="addUserTitle" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -356,82 +352,82 @@ $(document).ready(function () {
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                                <div class="col-sm-8">
+                                <div class="col-sm-11">
         
-                                    <h4 class="page-header">Preview Detailes</h4>
-                                    <form role="form">
+                                    <h4 class="page-header">Preview Details</h4>
+                                    <form id="formAdd" role="form">
                                         <div class="form-group float-label-control">
-                                            <label for="">Company</label>
-                                            <input type="text" class="form-control" placeholder="What's your name?" id="name">
+                                            <label for="">Name</label>
+                                            <input type="text" class="form-control" placeholder="What's your name?" id="name" required>
                                         </div>
                                         <div class="form-group float-label-control">
                                             <label for="">Email</label>
-                                            <input type="email" class="form-control" placeholder="What's your email address?" id="email">
+                                            <input type="email" class="form-control" placeholder="What's your email address?" id="email" required>
                                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with
                                                 anyone else.</small>
                                         </div>
                                         <div class="form-group float-label-control">
                                             <label for="">Phone</label>
-                                            <input class="form-control" placeholder="What's your telephone number?" >
+                                            <input type="tel" class="form-control" placeholder="What's your telephone number?" id="phone" required>
                                         </div>
                                         <div class="form-group float-label-control">
                                             <label for="">Website</label>
-                                            <textarea class="form-control" placeholder="example@mywebsite.com"
-                                                rows="1"></textarea>
+                                            <input type="url" class="form-control" placeholder="example@mywebsite.com" id="website" required>
                                         </div>
-                                    </form>
-        
-                                    <h4 class="page-header">Adress</h4>
-                                    <form role="form">
+                                        <div class="form-group float-label-control">
+                                            <label for="">Username</label>
+                                            <input type="text" class="form-control" placeholder="What's your username?" id="username" required>
+                                        </div>
+
+                                        <h4 class="page-header">Adress</h4>
+
                                         <div class="form-group float-label-control label-bottom">
                                             <label for="">Street</label>
-                                            <input type="email" class="form-control" placeholder="Street">
+                                            <input type="email" class="form-control" placeholder="Street" id="street" required>
                                         </div>
                                         <div class="form-group float-label-control label-bottom">
                                             <label for="">Suite</label>
-                                            <input type="email" class="form-control" placeholder="Suite">
+                                            <input type="email" class="form-control" placeholder="Suite" id="suite" required>
                                         </div>
                                         <div class="form-group float-label-control label-bottom">
                                             <label for="">City</label>
-                                            <input type="email" class="form-control" placeholder="City">
+                                            <input type="email" class="form-control" placeholder="City" id="city" required>
                                         </div>
                                         <div class="form-group float-label-control label-bottom">
                                             <label for="">Zipcode</label>
-                                            <input type="email" class="form-control" placeholder="Zipcode">
+                                            <input type="email" class="form-control" placeholder="Zipcode" id="zipcode" required>
                                         </div>
                                         <div class="form-group float-label-control label-bottom">
                                             <label for="">Geo</label>
-                                            <input type="email" class="form-control" placeholder="Latitude">
-                                            <input type="email" class="form-control" placeholder="Longitude">
+                                            <div class="d-flex justify-content-between">
+                                                <input type="email" class="form-control" placeholder="Latitude" id="lat" required>
+                                                <input type="email" class="form-control" placeholder="Longitude" id="lng" required>
+                                            </div>
                                         </div>
         
-                                    </form>
-        
-        
-                                    <h4 class="page-header">Company Details</h4>
-                                    <form role="form">
+                                        <h4 class="page-header">Company Details</h4>
+
                                         <div class="form-group float-label-control">
-                                            <label for="">Company</label>
-                                            <input type="text" class="form-control" placeholder="What's your company name?" id="company_name">
+                                        <label for="">Company</label>
+                                        <input type="text" class="form-control" placeholder="What's your company name?" id="company_name" required>
                                         </div>
                                         <div class="form-group float-label-control label-bottom">
-                                            <label for="">Catch Prase</label>
-                                            <input type="email" class="form-control" placeholder="Catch Prase">
+                                        <label for="">Catch Prase</label>
+                                        <input type="email" class="form-control" placeholder="Catch Prase" id="catch_phrase" required>
                                         </div>
                                         <div class="form-group float-label-control label-bottom">
-                                            <label for="">Aria of interest</label>
-                                            <input type="email" class="form-control" placeholder="Aria of interest">
+                                        <label for="">Aria of interest</label>
+                                        <input type="email" class="form-control" placeholder="Aria of interest" id="aria_of_interest" required>
                                         </div>
-        
+                                        
+                                    </form>
                                 </div>
-                                <div class="col-sm-4">
-        
-                                </div>
+                                <div class="col-sm-1"></div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Add</button>
+                            <button id="addUserBtn" type="submit" class="btn btn-primary">Add</button>
                         </div>
                     </div>
                 </div>
@@ -445,7 +441,7 @@ $(document).ready(function () {
         let html = `<div id="ContainerOfCards" class="row">`;
 
         users.forEach(function (user, i) {
-            html += `<div class="col-md-4 col-sm-12 " id="BusinessCard${i}" data-userToBeDeleted="${i}" uid="${i}">
+            html += `<div class="col-md-4 col-sm-12" data-userToBeDeletedOrEdited="${i}" uid="${i}">
                 <div class="card spacing">
             
                     <ul class="list-group list-group-flush">
@@ -518,47 +514,163 @@ $(document).ready(function () {
         
     }
     
-    loadAddModal(containerAddModal)
-    loadEditModals(containerUpdateModals); 
-    loadUsers(containerUsers);
-
-    function initInteractions(el){
-        /* -function for intiation of the procedures */
-
-        function addClickEventToDeleteButtons(user, i, users) {
+    
+    function addClickEventToDeleteButtons(user, i, users) {
+        
+        /* 
+         - function takes as parameters user, i and users witch they are in order element of the array users, index of the array, array named users  for intiation of the procedures 
+         - after finding the link between the delete button and the container of the card the respective element of the array is removed and the list is refreshed
+         */
             
-            /* 
-             - function takes as parameters user, i and users witch they are in order element of the array users, index of the array, array named users  for intiation of the procedures 
-             - the instruction that encapsulates has an .unbind("click") to deactivate the click event on line 238 
-             - after finding the link between the delete button and the container of the card the respective element of the array is removed and the list is refreshed
-             */
-                // console.log(targetedElement.closest("div[data-id]").getAttribute("uid") + `\n` + $(`div[data-index='${i}']`).getAttribute("uid"));
-                
-            $(`#delete${i}`).unbind("click").click(function(event){
-                let targetedElement = event.currentTarget;
-                console.log(targetedElement.closest(`div[data-userToBeDeleted='${i}']`, $(`#BusinessCard${i}`)));
-                if (targetedElement.closest(`div[data-userToBeDeleted='${i}']`, $(`#BusinessCard${i}`))){
-                        users.splice(i, 1);
-                        loadUsers(containerUsers);
-            }
-        });
+        $(`#delete${i}`).click(function(event){
+            let targetedElement = event.currentTarget;
+            if (targetedElement.closest(`div[data-userToBeDeletedOrEdited='${i}']`)){
+                users.splice(i, 1);
+                loadEditModals(containerUpdateModals);
+                loadUsers(containerUsers);
+                initInteractions();
         }
+        });
+    }
 
-        function addClickEventToEditButtons(user, i, users) { 
-            $(`#edit${i}`).unbind("click").click(function(event){
-                let targetedElement = event.currentTarget;
-                if (targetedElement.closest(`div[data-userToBeDeleted='${i}']`, $(`#BusinessCard${i}`))){
-                    
-                    loadUsers(containerUsers);
-            }
-        });
+    function addClickEventToSaveButtons(user, i, users) {
+        
+        /* 
+        */
+        
+        $(`#editUserData${i}`).click(function(event){
+            let targetedElement = event.currentTarget;
+            if (targetedElement.closest(`div[data-userToBeDeletedOrEdited='${i}']`)){
+                
+            let _name = $(`#name${i}`).val();
+            let _username = $(`#username${i}`).val();
+            let _email = $(`#email${i}`).val();
+            let _street = $(`#street${i}`).val();
+            let _suite = $(`#suite${i}`).val();
+            let _city = $(`#city${i}`).val();
+            let _zipcode = $(`#zipcode${i}`).val();
+            let _lat = $(`#lat${i}`).val();
+            let _lng = $(`#lng${i}`).val();
+            let _phone = $(`#phone${i}`).val();
+            let _website = $(`#website${i}`).val();
+            let _companyName = $(`#company_name${i}`).val();
+            let _catchPhrase = $(`#catch_phrase${i}`).val();
+            let _bs = $(`#aria_of_interest${i}`).val();
+            
+            users[i] = {
+                id : i+1,
+                name : _name,
+                username : _username,
+                email : _email,
+                address : {
+                    street : _street,
+                    suite : _suite,
+                    city : _city,
+                    zipcode : _zipcode,
+                    geo : {
+                        lat : _lat,
+                        lng : _lng
+                    }
+                },
+                phone : _phone,
+                website : _website,
+                company : {
+                    name : _companyName,
+                    catchPhrase : _catchPhrase,
+                    bs : _bs
+                }
+            };
+
+            //debugger
+            loadEditModals(containerUpdateModals);
+            loadUsers(containerUsers);
+            initInteractions();
+            
+            $(`#editUser${i}`).modal('hide');    
         }
+        });
+    }
+
+
+    function addClickEventToAddButton(users) { 
+        $(`#addUserBtn`).click(function(event){
+
+            let _name = $(`#name`).val();
+            let _username = $(`#username`).val();
+            let _email = $(`#email`).val();
+            let _street = $(`#street`).val();
+            let _suite = $(`#suite`).val();
+            let _city = $(`#city`).val();
+            let _zipcode = $(`#zipcode`).val();
+            let _lat = $(`#lat`).val();
+            let _lng = $(`#lng`).val();
+            let _phone = $(`#phone`).val();
+            let _website = $(`#website`).val();
+            let _companyName = $(`#company_name`).val();
+            let _catchPhrase = $(`#catch_phrase`).val();
+            let _bs = $(`#aria_of_interest`).val();
+            
+            let newUser = {
+                id : usersCounter+1,
+                name : _name,
+                username : _username,
+                email : _email,
+                address : {
+                    street : _street,
+                    suite : _suite,
+                    city : _city,
+                    zipcode : _zipcode,
+                    geo : {
+                        lat : _lat,
+                        lng : _lng
+                    }
+                },
+                phone : _phone,
+                website : _website,
+                company : {
+                    name : _companyName,
+                    catchPhrase : _catchPhrase,
+                    bs : _bs
+                }
+            };
+            
+            users.push(newUser);
+            console.log(users);
+
+            loadUsers(containerUsers);
+            loadEditModals(containerUpdateModals); 
+            users.filter( (user, i, users) => { 
+                addClickEventToDeleteButtons(user, i, users); 
+                addClickEventToSaveButtons(user, i, users);
+            });
+
+            usersCounter++;
+            
+            $('#addUser').modal('hide');
+            
+            
+        });
+    }
+    
+    // fires after the add modal dissapeares
+    $('#addUser').on('hidden.bs.modal', function () {
+        //initInteractions();
+      })
+
+    function initInteractions(){
+        /* -function for intiation of the procedures */
+        
+        loadAddModal(containerAddModal);
+        loadEditModals(containerUpdateModals); 
+        loadUsers(containerUsers);
+        addClickEventToAddButton(users);
         
         users.filter( (user, i, users) => { 
-            addClickEventToDeleteButtons(user, i, users); 
-            addClickEventToEditButtons(user, i, users); 
-
+            addClickEventToDeleteButtons(user, i, users);
+            addClickEventToSaveButtons(user, i, users); 
         });
         
     }
+
+    initInteractions();
     });
