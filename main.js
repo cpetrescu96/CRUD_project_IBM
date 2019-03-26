@@ -234,7 +234,7 @@ let users = [{
 
 $(document).ready(function () {
 
-    //$(document).on("click",initInteractions);
+    //initialization of the containers in witch modals or card-like user information is stored
 
     let containerUsers = $("#Users");
     let containerUpdateModals = $(`.updateModals`);
@@ -242,6 +242,11 @@ $(document).ready(function () {
     let usersCounter = users.length;
     
     function loadEditModals(containerUpdateModals){
+        /*
+         - function takes as parameter the container in witch the modal edit forms will be appended
+         - when the funtion fires a modal form is being dinamically constructed for every user in the users array
+        */
+
         let html = ``;
         
         users.forEach(function (user, i) {
@@ -377,6 +382,11 @@ $(document).ready(function () {
     }
 
     function loadAddModal(containerAddModal){
+        /*
+         - function takes as parameter the container in witch the add new user modal form will be appended
+         - when the funtion fires a form is being constructed in order to add a new user to the array with the input data
+        */ 
+
         let html ="";
         html += `<!-- Add Modal form -->
         <div class="modal fade" id="addUser" tabindex="0" role="dialog" aria-labelledby="addUserTitle" aria-hidden="true">
@@ -507,6 +517,11 @@ $(document).ready(function () {
     }
 
     function loadUsers(containerUsers) {
+        /*
+         - function takes as parameter the container in witch the user cards will be appended
+         - when the funtion fires a card is being dinamically constructed for every user in the users array
+        */
+
         let html = `<div id="ContainerOfCards" class="row">`;
 
         users.forEach(function (user, i) {
@@ -604,7 +619,9 @@ $(document).ready(function () {
 
     function addClickEventToSaveButtons(user, i, users) {
         
-        /* 
+        /*
+         - function takes as parameters user, i and users witch they are in order element of the array users, index of the array, array named users  for intiation of the procedures 
+         - when the click event is fired all the data from the form is taken in local variables and then the respective array object is being editted with said data and the list is refreshed
         */
         
         $(`#editUserData${i}`).click(function(){
@@ -664,7 +681,12 @@ $(document).ready(function () {
 
 
     function addClickEventToAddButton(users) { 
-        $(`#addUserBtn`).click(function(event){
+        /*
+         - function takes as parameters user, i and users witch they are in order element of the array users, index of the array, array named users  for intiation of the procedures 
+         - when the click event is fired all the data from the form is taken in local variables and then constructed into a new array object then pushed into the array and the list is refreshed
+        */
+
+        $(`#addUserBtn`).click(function(){
 
             let _name = $(`#name`).val();
             let _username = $(`#username`).val();
